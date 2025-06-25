@@ -92,6 +92,19 @@ export default {
 					700: '#0369a1',
 					800: '#075985',
 					900: '#002b36',
+				},
+				gold: {
+					DEFAULT: '#ffd700',
+					50: '#fffbeb',
+					100: '#fef3c7',
+					200: '#fde68a',
+					300: '#fcd34d',
+					400: '#fbbf24',
+					500: '#f59e0b',
+					600: '#d97706',
+					700: '#b45309',
+					800: '#92400e',
+					900: '#78350f',
 				}
 			},
 			borderRadius: {
@@ -120,12 +133,22 @@ export default {
 					'0%': { transform: 'rotateY(0deg)' },
 					'50%': { transform: 'rotateY(-90deg)' },
 					'100%': { transform: 'rotateY(0deg)' }
+				},
+				'terminal-cursor': {
+					'0%, 50%': { opacity: '1' },
+					'51%, 100%': { opacity: '0' }
+				},
+				'radar-ping': {
+					'0%': { transform: 'scale(0)', opacity: '1' },
+					'100%': { transform: 'scale(4)', opacity: '0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'page-flip': 'page-flip 0.6s ease-in-out'
+				'page-flip': 'page-flip 0.6s ease-in-out',
+				'terminal-cursor': 'terminal-cursor 1s infinite',
+				'radar-ping': 'radar-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite'
 			},
 			backgroundImage: {
 				'newsprint': "url(\"data:image/svg+xml,%3csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cpattern id='newsprint' patternUnits='userSpaceOnUse' width='60' height='60'%3e%3cpath d='M0 0h60v60H0z' fill='%23f4f4f4'/%3e%3cpath d='M0 30h60M30 0v60' stroke='%23e4e4e4' stroke-width='0.5' opacity='0.3'/%3e%3c/pattern%3e%3c/defs%3e%3crect width='100%25' height='100%25' fill='url(%23newsprint)'/%3e%3c/svg%3e\")"

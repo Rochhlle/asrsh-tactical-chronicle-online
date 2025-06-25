@@ -56,6 +56,7 @@
   body {
     @apply bg-newsprint-100 text-foreground font-merriweather;
     background-image: url("data:image/svg+xml,%3csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cpattern id='newsprint' patternUnits='userSpaceOnUse' width='60' height='60'%3e%3cpath d='M0 0h60v60H0z' fill='%23f4f4f4'/%3e%3cpath d='M0 30h60M30 0v60' stroke='%23e4e4e4' stroke-width='0.5' opacity='0.3'/%3e%3c/pattern%3e%3c/defs%3e%3crect width='100%25' height='100%25' fill='url(%23newsprint)'/%3e%3c/svg%3e");
+    cursor: url("data:image/svg+xml,%3csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='10' cy='10' r='8' fill='none' stroke='%2300ff00' stroke-width='2'/%3e%3ccircle cx='10' cy='10' r='2' fill='%2300ff00'/%3e%3c/svg%3e"), auto;
   }
 }
 
@@ -118,6 +119,64 @@
   .no-break {
     break-inside: avoid;
   }
+
+  /* New Cinematic Effects */
+  .crt-glow {
+    position: relative;
+  }
+
+  .crt-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 255, 0, 0.03) 50%,
+      transparent 100%
+    );
+    animation: scanline 2s linear infinite;
+    pointer-events: none;
+  }
+
+  .tactical-border {
+    position: relative;
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, #00ff00, #0080ff) border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  .holographic-text {
+    background: linear-gradient(45deg, #00ff00, #0080ff, #ff0080);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: holo-shift 3s ease-in-out infinite;
+  }
+
+  @keyframes scanline {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes holo-shift {
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(90deg); }
+  }
+
+  @keyframes radar-sweep {
+    0% { transform: rotate(0deg) scaleY(0); }
+    50% { transform: rotate(180deg) scaleY(1); }
+    100% { transform: rotate(360deg) scaleY(0); }
+  }
+
+  @keyframes terminal-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
 }
 
 @layer utilities {
@@ -127,5 +186,39 @@
   
   .hover-underline {
     @apply transition-all duration-200 hover:underline hover:text-navy-700;
+  }
+
+  .tactical-cursor {
+    cursor: url("data:image/svg+xml,%3csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='12' cy='12' r='10' fill='none' stroke='%2300ff00' stroke-width='2'/%3e%3cline x1='12' y1='2' x2='12' y2='6' stroke='%2300ff00' stroke-width='2'/%3e%3cline x1='12' y1='18' x2='12' y2='22' stroke='%2300ff00' stroke-width='2'/%3e%3cline x1='2' y1='12' x2='6' y2='12' stroke='%2300ff00' stroke-width='2'/%3e%3cline x1='18' y1='12' x2='22' y2='12' stroke='%2300ff00' stroke-width='2'/%3e%3c/svg%3e"), crosshair;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
