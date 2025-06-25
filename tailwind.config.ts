@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'baskerville': ['Libre Baskerville', 'serif'],
+				'merriweather': ['Merriweather', 'serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,6 +66,32 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom newspaper colors
+				newsprint: {
+					50: '#fafafa',
+					100: '#f4f4f4',
+					200: '#e4e4e4',
+					300: '#d4d4d4',
+					400: '#a3a3a3',
+					500: '#737373',
+					600: '#525252',
+					700: '#404040',
+					800: '#262626',
+					900: '#171717',
+				},
+				navy: {
+					DEFAULT: '#002b36',
+					50: '#f0f9ff',
+					100: '#e0f2fe',
+					200: '#bae6fd',
+					300: '#7dd3fc',
+					400: '#38bdf8',
+					500: '#0ea5e9',
+					600: '#0284c7',
+					700: '#0369a1',
+					800: '#075985',
+					900: '#002b36',
 				}
 			},
 			borderRadius: {
@@ -84,11 +115,20 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'page-flip': {
+					'0%': { transform: 'rotateY(0deg)' },
+					'50%': { transform: 'rotateY(-90deg)' },
+					'100%': { transform: 'rotateY(0deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'page-flip': 'page-flip 0.6s ease-in-out'
+			},
+			backgroundImage: {
+				'newsprint': "url(\"data:image/svg+xml,%3csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cpattern id='newsprint' patternUnits='userSpaceOnUse' width='60' height='60'%3e%3cpath d='M0 0h60v60H0z' fill='%23f4f4f4'/%3e%3cpath d='M0 30h60M30 0v60' stroke='%23e4e4e4' stroke-width='0.5' opacity='0.3'/%3e%3c/pattern%3e%3c/defs%3e%3crect width='100%25' height='100%25' fill='url(%23newsprint)'/%3e%3c/svg%3e\")"
 			}
 		}
 	},
