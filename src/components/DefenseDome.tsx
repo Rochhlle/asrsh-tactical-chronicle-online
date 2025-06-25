@@ -1,5 +1,5 @@
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -43,28 +43,26 @@ const RotatingDome = () => {
 
 const DefenseDomeCanvas = () => {
   return (
-    <Canvas 
-      camera={{ position: [5, 2, 5], fov: 50 }}
-      onCreated={({ gl }) => {
-        gl.setSize(window.innerWidth, window.innerHeight);
-      }}
-      fallback={<div>Loading 3D Scene...</div>}
-    >
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[10, 10, 5]} intensity={0.8} color="#ffffff" />
-      <pointLight position={[-10, -10, -5]} intensity={0.3} color="#002b36" />
-      
-      <RotatingDome />
-      
-      <OrbitControls 
-        enableZoom={true}
-        enablePan={false}
-        maxDistance={10}
-        minDistance={3}
-        autoRotate={true}
-        autoRotateSpeed={0.5}
-      />
-    </Canvas>
+    <div style={{ width: '100%', height: '200px' }}>
+      <Canvas 
+        camera={{ position: [5, 2, 5], fov: 50 }}
+      >
+        <ambientLight intensity={0.4} />
+        <directionalLight position={[10, 10, 5]} intensity={0.8} color="#ffffff" />
+        <pointLight position={[-10, -10, -5]} intensity={0.3} color="#002b36" />
+        
+        <RotatingDome />
+        
+        <OrbitControls 
+          enableZoom={true}
+          enablePan={false}
+          maxDistance={10}
+          minDistance={3}
+          autoRotate={true}
+          autoRotateSpeed={0.5}
+        />
+      </Canvas>
+    </div>
   );
 };
 
