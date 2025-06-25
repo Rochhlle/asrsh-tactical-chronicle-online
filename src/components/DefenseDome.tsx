@@ -1,7 +1,7 @@
 
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Sphere, Text3D, OrbitControls } from '@react-three/drei';
+import { Sphere, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
 const RotatingDome = () => {
