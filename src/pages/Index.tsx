@@ -2,6 +2,7 @@
 import React from 'react';
 import { NewspaperHeader } from '@/components/NewspaperHeader';
 import { FrontPageArticle } from '@/components/FrontPageArticle';
+import { DefenseDome } from '@/components/DefenseDome';
 import { EditorialSection } from '@/components/EditorialSection';
 import { RevenueSection } from '@/components/RevenueSection';
 import { ClosingEditorial } from '@/components/ClosingEditorial';
@@ -16,6 +17,7 @@ const Index = () => {
           
           <main className="space-y-8">
             <FrontPageArticle />
+            <DefenseDome />
             <EditorialSection />
             <RevenueSection />
             <ClosingEditorial />
