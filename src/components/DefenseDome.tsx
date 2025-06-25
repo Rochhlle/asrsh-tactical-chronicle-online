@@ -1,7 +1,6 @@
 
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Sphere, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
 const RotatingDome = () => {
@@ -16,27 +15,35 @@ const RotatingDome = () => {
   return (
     <group>
       {/* Main defense dome */}
-      <Sphere ref={meshRef} args={[2, 32, 16]} position={[0, 0, 0]}>
+      <mesh ref={meshRef} position={[0, 0, 0]}>
+        <sphereGeometry args={[2, 32, 16]} />
         <meshStandardMaterial 
           color="#002b36" 
           transparent 
           opacity={0.3}
           wireframe={true}
         />
-      </Sphere>
+      </mesh>
       
       {/* Inner core */}
-      <Sphere args={[0.5, 16, 8]} position={[0, 0, 0]}>
+      <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[0.5, 16, 8]} />
         <meshStandardMaterial color="#ff4444" emissive="#ff2222" emissiveIntensity={0.2} />
-      </Sphere>
+      </mesh>
       
       {/* Orbital rings */}
-      {[1, 1.5, 2.5].map((radius, index) => (
-        <mesh key={index} rotation={[Math.PI / 2, 0, index * Math.PI / 3]}>
-          <torusGeometry args={[radius, 0.02, 8, 32]} />
-          <meshStandardMaterial color="#002b36" opacity={0.6} transparent />
-        </mesh>
-      ))}
+      <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[1, 0.02, 8, 32]} />
+        <meshStandardMaterial color="#002b36" opacity={0.6} transparent />
+      </mesh>
+      <mesh rotation={[Math.PI / 2, 0, Math.PI / 3]}>
+        <torusGeometry args={[1.5, 0.02, 8, 32]} />
+        <meshStandardMaterial color="#002b36" opacity={0.6} transparent />
+      </mesh>
+      <mesh rotation={[Math.PI / 2, 0, 2 * Math.PI / 3]}>
+        <torusGeometry args={[2.5, 0.02, 8, 32]} />
+        <meshStandardMaterial color="#002b36" opacity={0.6} transparent />
+      </mesh>
     </group>
   );
 };
@@ -44,23 +51,11 @@ const RotatingDome = () => {
 const DefenseDomeCanvas = () => {
   return (
     <div style={{ width: '100%', height: '200px' }}>
-      <Canvas 
-        camera={{ position: [5, 2, 5], fov: 50 }}
-      >
+      <Canvas camera={{ position: [5, 2, 5], fov: 50 }}>
         <ambientLight intensity={0.4} />
-        <directionalLight position={[10, 10, 5]} intensity={0.8} color="#ffffff" />
-        <pointLight position={[-10, -10, -5]} intensity={0.3} color="#002b36" />
-        
+        <directionalLight position={[10, 10, 5]} intensity={0.8} />
+        <pointLight position={[-10, -10, -5]} intensity={0.3} />
         <RotatingDome />
-        
-        <OrbitControls 
-          enableZoom={true}
-          enablePan={false}
-          maxDistance={10}
-          minDistance={3}
-          autoRotate={true}
-          autoRotateSpeed={0.5}
-        />
       </Canvas>
     </div>
   );
@@ -75,7 +70,7 @@ export const DefenseDome = () => {
       <DefenseDomeCanvas />
       <div className="text-center pb-2">
         <p className="text-xs text-newsprint-600 font-merriweather italic">
-          Interactive Defense Perimeter Concept - Click and drag to explore
+          Interactive Defense Perimeter Concept - Simplified View
         </p>
       </div>
     </div>
