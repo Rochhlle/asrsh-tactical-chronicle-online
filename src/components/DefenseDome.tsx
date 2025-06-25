@@ -1,5 +1,5 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -41,28 +41,40 @@ const RotatingDome = () => {
   );
 };
 
+const DefenseDomeCanvas = () => {
+  return (
+    <Canvas 
+      camera={{ position: [5, 2, 5], fov: 50 }}
+      onCreated={({ gl }) => {
+        gl.setSize(window.innerWidth, window.innerHeight);
+      }}
+      fallback={<div>Loading 3D Scene...</div>}
+    >
+      <ambientLight intensity={0.4} />
+      <directionalLight position={[10, 10, 5]} intensity={0.8} color="#ffffff" />
+      <pointLight position={[-10, -10, -5]} intensity={0.3} color="#002b36" />
+      
+      <RotatingDome />
+      
+      <OrbitControls 
+        enableZoom={true}
+        enablePan={false}
+        maxDistance={10}
+        minDistance={3}
+        autoRotate={true}
+        autoRotateSpeed={0.5}
+      />
+    </Canvas>
+  );
+};
+
 export const DefenseDome = () => {
   return (
     <div className="w-full h-64 mb-8 border border-newsprint-400 bg-newsprint-50">
       <div className="text-center mb-2 pt-2">
         <p className="newspaper-byline text-newsprint-600">ASRSH DEFENSE MATRIX VISUALIZATION</p>
       </div>
-      <Canvas camera={{ position: [5, 2, 5], fov: 50 }}>
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[10, 10, 5]} intensity={0.8} color="#ffffff" />
-        <pointLight position={[-10, -10, -5]} intensity={0.3} color="#002b36" />
-        
-        <RotatingDome />
-        
-        <OrbitControls 
-          enableZoom={true}
-          enablePan={false}
-          maxDistance={10}
-          minDistance={3}
-          autoRotate={true}
-          autoRotateSpeed={0.5}
-        />
-      </Canvas>
+      <DefenseDomeCanvas />
       <div className="text-center pb-2">
         <p className="text-xs text-newsprint-600 font-merriweather italic">
           Interactive Defense Perimeter Concept - Click and drag to explore
