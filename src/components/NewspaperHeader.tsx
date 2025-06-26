@@ -14,7 +14,7 @@ export const NewspaperHeader = () => {
           })}
         </div>
         <h1 className="masthead text-navy-900 mb-2">
-          ASRSH TACTICAL TIMES
+          ASRSH THE FUTURE
         </h1>
         <div className="newspaper-byline text-navy-700">
           INDIA'S SOVEREIGN DEFENSE REVOLUTION

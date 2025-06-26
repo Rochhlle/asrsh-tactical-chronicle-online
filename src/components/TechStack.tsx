@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 interface TechModule {
   id: string;
   name: string;
-  icon: string;
   coreFunction: string;
   deepPurpose: string;
   technicalPower: string;
@@ -16,7 +15,6 @@ const techModules: TechModule[] = [
   {
     id: 'warbrain',
     name: 'WarBrain OS™',
-    icon: '📡',
     coreFunction: 'Autonomous decision-making AI core for battlefield logic.',
     deepPurpose: 'Ends dependence on foreign AI/mission software in active war zones.',
     technicalPower: 'Uses predictive swarm theory, low-latency reaction nodes, and indigenous battlefield heuristics.',
@@ -26,7 +24,6 @@ const techModules: TechModule[] = [
   {
     id: 'hud',
     name: 'Tactical Combat HUD',
-    icon: '🕶️',
     coreFunction: 'Real-time battlefield awareness, integrated on-visor.',
     deepPurpose: 'Replaces radio chatter + manual navigation in high-risk ops.',
     technicalPower: 'AR overlay, heartbeat sensor sync, gun status live-feed, multi-layer UI.',
@@ -36,7 +33,6 @@ const techModules: TechModule[] = [
   {
     id: 'shocksuit',
     name: 'Shock Suit MK-1',
-    icon: '🤖',
     coreFunction: 'Delivers real pain simulation for battlefield readiness.',
     deepPurpose: 'Ends unrealistic dry-drills and hollow urban training.',
     technicalPower: 'Zoned electrode mesh, haptic motor clusters, real-time instructor override.',
@@ -46,7 +42,6 @@ const techModules: TechModule[] = [
   {
     id: 'swarm',
     name: 'Swarm Control Logic™',
-    icon: '🚁',
     coreFunction: 'AI-driven formation management for 10+ drone units.',
     deepPurpose: 'Makes swarm missions programmable & low-input for human ops.',
     technicalPower: 'Built on India-first neural-mesh cluster, modular payload logic.',
@@ -56,7 +51,6 @@ const techModules: TechModule[] = [
   {
     id: 'stealth',
     name: 'Phantom Stealth Fabric',
-    icon: '🧥',
     coreFunction: 'Radar-diffusing cloth for suits, gear, and armor.',
     deepPurpose: 'Replace foreign camo & make SF teams disappear from enemy radar.',
     technicalPower: 'Layered diffraction mesh, thermal-resistant compound, light-bending core.',
@@ -66,7 +60,6 @@ const techModules: TechModule[] = [
   {
     id: 'os',
     name: 'ASRSH Sovereign OS',
-    icon: '🌐',
     coreFunction: 'Fully Indian hardware-software stack for defense electronics.',
     deepPurpose: 'Eliminate kernel/data leaks from Western OS layers (e.g., Linux, Android forks).',
     technicalPower: 'Microkernel-based, offline-autonomous, hardened against CBRNE/EMP.',
@@ -78,15 +71,6 @@ const techModules: TechModule[] = [
 export const TechStack = () => {
   const [hoveredModule, setHoveredModule] = useState<string | null>(null);
   const [expandedModule, setExpandedModule] = useState<string | null>(null);
-
-  const getStatusBadge = (status: string) => {
-    switch (status) {
-      case 'deployed': return { label: 'DEPLOYED', color: 'bg-green-500' };
-      case 'testing': return { label: '🧬 UNDER TESTING', color: 'bg-yellow-500' };
-      case 'validated': return { label: '🛡️ DRDO VALIDATED', color: 'bg-blue-500' };
-      default: return { label: 'UNKNOWN', color: 'bg-gray-500' };
-    }
-  };
 
   return (
     <section className="py-16 bg-gradient-to-b from-navy-900 to-black relative overflow-hidden">
@@ -107,7 +91,6 @@ export const TechStack = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {techModules.map((module) => {
-            const statusBadge = getStatusBadge(module.status);
             return (
               <div
                 key={module.id}
@@ -116,16 +99,8 @@ export const TechStack = () => {
                 onMouseLeave={() => setHoveredModule(null)}
                 onClick={() => setExpandedModule(expandedModule === module.id ? null : module.id)}
               >
-                {/* Status Badge */}
-                <div className="absolute top-4 right-4">
-                  <span className={`px-2 py-1 text-xs font-mono rounded ${statusBadge.color} text-white`}>
-                    {statusBadge.label}
-                  </span>
-                </div>
-
-                {/* Module Icon & Name */}
+                {/* Module Name */}
                 <div className="mb-4">
-                  <div className="text-4xl mb-2">{module.icon}</div>
                   <h3 className="font-baskerville text-xl font-bold text-white">
                     {module.name}
                   </h3>
@@ -133,7 +108,7 @@ export const TechStack = () => {
 
                 {/* Core Function */}
                 <div className="mb-4">
-                  <h4 className="text-green-400 font-mono font-bold text-sm mb-2">🧠 CORE FUNCTION:</h4>
+                  <h4 className="text-green-400 font-mono font-bold text-sm mb-2">CORE FUNCTION:</h4>
                   <p className="text-newsprint-200 text-sm">{module.coreFunction}</p>
                 </div>
 
@@ -147,17 +122,17 @@ export const TechStack = () => {
                   <div className="mt-6 p-4 bg-black/50 rounded border border-white/20 animate-fade-in">
                     <div className="space-y-3">
                       <div>
-                        <h4 className="text-yellow-400 font-mono font-bold text-sm mb-1">🔍 DEEP PURPOSE:</h4>
+                        <h4 className="text-yellow-400 font-mono font-bold text-sm mb-1">DEEP PURPOSE:</h4>
                         <p className="text-newsprint-200 text-sm">{module.deepPurpose}</p>
                       </div>
                       
                       <div>
-                        <h4 className="text-blue-400 font-mono font-bold text-sm mb-1">🧪 TECHNICAL POWER:</h4>
+                        <h4 className="text-blue-400 font-mono font-bold text-sm mb-1">TECHNICAL POWER:</h4>
                         <p className="text-newsprint-200 text-sm">{module.technicalPower}</p>
                       </div>
                       
                       <div>
-                        <h4 className="text-purple-400 font-mono font-bold text-sm mb-1">🪙 VALUE STREAM:</h4>
+                        <h4 className="text-purple-400 font-mono font-bold text-sm mb-1">VALUE STREAM:</h4>
                         <p className="text-newsprint-200 text-sm">{module.valueStream}</p>
                       </div>
                     </div>

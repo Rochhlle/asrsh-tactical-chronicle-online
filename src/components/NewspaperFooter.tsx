@@ -31,13 +31,10 @@ export const NewspaperFooter = () => {
       <div className="flex justify-between items-center text-sm font-merriweather text-newsprint-600">
         <div>
           <p>Page 1</p>
-          <p className="text-xs mt-1">Reproduced for the National Sovereignty Review Board</p>
-          <p className="text-xs">Not for Commercial Distribution</p>
         </div>
         
         <div className="text-center">
-          <p className="font-bold">ASRSH TACTICAL TIMES</p>
-          <p>Operations Command • Mumbai, India</p>
+          <p className="font-bold">ASRSH THE FUTURE</p>
         </div>
         
         <div className="text-right">

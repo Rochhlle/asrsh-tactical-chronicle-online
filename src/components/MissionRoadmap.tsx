@@ -18,7 +18,7 @@ const phases: Phase[] = [
   {
     id: 'phase0',
     name: 'PHASE 0 — KAAL',
-    title: '🟥 KAAL',
+    title: 'KAAL',
     system: 'Immersive Terrain Simulation + Shock Suit + AI Ops Control',
     goal: 'Redefine Indian combat training realism.',
     revenue: 'Govt Training Contracts – Army, CRPF, NSG • Simulation-as-a-Service – Map Packs + AI Scenarios • KAAL-lite Exports – Africa, SEA • Civil Use – Crisis & disaster training',
@@ -30,7 +30,7 @@ const phases: Phase[] = [
   {
     id: 'phase1',
     name: 'PHASE 1 — IGNITION',
-    title: '🟧 IGNITION',
+    title: 'IGNITION',
     system: 'Smart Rifle, Tactical Drone, Combat HUD, Bio-Feedback Suit',
     goal: 'Build India\'s first intelligent soldier gear suite.',
     revenue: 'Direct Weapon Sales • AI HUD IP Licensing • Force Kits (Rifle + HUD + Suit) • Exports: Tactical Drones, HUDs',
@@ -42,7 +42,7 @@ const phases: Phase[] = [
   {
     id: 'phase2',
     name: 'PHASE 2 — PHANTOM',
-    title: '🟨 PHANTOM',
+    title: 'PHANTOM',
     system: 'Stealth Fabrics, Radar Camouflage, Holographic Illusion',
     goal: 'Make forces invisible to sensors, visible to victory.',
     revenue: 'Stealth Gear for Garud, MARCOS, NSG • HoloSim add-ons to KAAL • Material Licensing to Drone Cos',
@@ -54,7 +54,7 @@ const phases: Phase[] = [
   {
     id: 'phase3',
     name: 'PHASE 3 — BANNER',
-    title: '🟩 BANNER',
+    title: 'BANNER',
     system: 'AI WarBrain OS, Swarm Control Logic, Autonomous Tactical AI',
     goal: 'Build sovereign combat AI — smart enough to command, safe enough to trust.',
     revenue: 'War OS Licensing • Swarm-as-a-Service • Predictive Battle Logic IP Exports',
@@ -66,7 +66,7 @@ const phases: Phase[] = [
   {
     id: 'phase4',
     name: 'PHASE 4 — SOVEREIGN',
-    title: '🟦 SOVEREIGN',
+    title: 'SOVEREIGN',
     system: 'Full-Stack Defense OS + Autonomous Hardware Platform',
     goal: 'Build a weapon-tech economy from soil to satellite.',
     revenue: 'Full OEM Sales – Land/Air/Sea • Sovereign OS Licensing (India + Allies) • Custom Defense Systems (Navy, Airforce, SpaceCom)',
@@ -137,10 +137,10 @@ export const MissionRoadmap = () => {
                   {phase.name}
                 </h3>
                 <p className="text-newsprint-200 font-merriweather">
-                  🎯 System: {phase.system}
+                  System: {phase.system}
                 </p>
                 <p className="text-newsprint-200 font-merriweather mt-1">
-                  🎯 Goal: {phase.goal}
+                  Goal: {phase.goal}
                 </p>
               </div>
 
@@ -149,17 +149,17 @@ export const MissionRoadmap = () => {
                 <div className="mt-6 p-4 bg-black/30 rounded border border-white/20 animate-fade-in">
                   <div className="space-y-4">
                     <div>
-                      <h4 className="text-green-400 font-mono font-bold mb-2">💰 REVENUE STREAMS:</h4>
+                      <h4 className="text-green-400 font-mono font-bold mb-2">REVENUE STREAMS:</h4>
                       <p className="text-newsprint-200 text-sm leading-relaxed">{phase.revenue}</p>
                     </div>
                     
                     <div>
-                      <h4 className="text-blue-400 font-mono font-bold mb-2">📊 PROJECTED REVENUE:</h4>
+                      <h4 className="text-blue-400 font-mono font-bold mb-2">PROJECTED REVENUE:</h4>
                       <p className="text-white font-bold text-lg">{phase.projection}</p>
                     </div>
                     
                     <div>
-                      <h4 className="text-yellow-400 font-mono font-bold mb-2">🧠 CORE IP:</h4>
+                      <h4 className="text-yellow-400 font-mono font-bold mb-2">CORE IP:</h4>
                       <p className="text-newsprint-200 text-sm">{phase.coreIP}</p>
                     </div>
                   </div>
