@@ -48,17 +48,6 @@ const Index = () => {
       {/* New Cinematic Sections */}
       <MissionRoadmap />
       <TechStack />
-      
-      {/* Terminal Mode Toggle with Enhanced Styling */}
-      <div className="fixed bottom-4 right-4 z-30">
-        <button 
-          className="bg-gradient-to-r from-navy-900 to-blue-800 text-white px-6 py-3 rounded-lg text-sm hover:from-navy-700 hover:to-blue-600 transition-all duration-300 shadow-lg border border-blue-500/50 font-mono"
-          onClick={() => alert('Terminal Mode - Accessing Classified Systems...')}
-        >
-          <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-          TERMINAL MODE
-        </button>
-      </div>
     </div>
   );
 };

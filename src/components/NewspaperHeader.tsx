@@ -6,7 +6,7 @@ export const NewspaperHeader = () => {
     <header className="border-b-4 border-newsprint-800 pb-6 mb-8">
       <div className="text-center">
         <div className="newspaper-dateline">
-          MUMBAI, INDIA • MORNING EDITION • {new Date().toLocaleDateString('en-IN', { 
+          INDIA • MORNING EDITION • {new Date().toLocaleDateString('en-IN', { 
             weekday: 'long', 
             year: 'numeric', 
             month: 'long', 
@@ -40,8 +40,6 @@ export const NewspaperHeader = () => {
           <span>EST. 2024</span>
           <span>•</span>
           <span>OPERATIONS COMMAND</span>
-          <span>•</span>
-          <span>PRICE: ₹2</span>
         </div>
       </div>
     </header>
