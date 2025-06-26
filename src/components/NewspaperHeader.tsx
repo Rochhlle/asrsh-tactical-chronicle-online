@@ -13,9 +13,26 @@ export const NewspaperHeader = () => {
             day: 'numeric' 
           })}
         </div>
-        <h1 className="masthead text-navy-900 mb-2">
-          ASRSH THE FUTURE
-        </h1>
+        
+        {/* Logo and Masthead Combined */}
+        <div className="flex flex-col items-center justify-center mb-4">
+          <div className="flex items-center justify-center space-x-6 mb-2">
+            <img 
+              src="/lovable-uploads/0c0b18c2-0c24-4523-a25c-4ad14c0708a2.png" 
+              alt="ASRSH Logo" 
+              className="h-16 w-16 md:h-20 md:w-20 opacity-90 filter drop-shadow-lg"
+            />
+            <h1 className="masthead text-navy-900">
+              ASRSH THE FUTURE
+            </h1>
+            <img 
+              src="/lovable-uploads/0c0b18c2-0c24-4523-a25c-4ad14c0708a2.png" 
+              alt="ASRSH Logo" 
+              className="h-16 w-16 md:h-20 md:w-20 opacity-90 filter drop-shadow-lg"
+            />
+          </div>
+        </div>
+        
         <div className="newspaper-byline text-navy-700">
           INDIA'S SOVEREIGN DEFENSE REVOLUTION
         </div>

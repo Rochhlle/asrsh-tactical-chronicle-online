@@ -29,11 +29,21 @@ export const NewspaperFooter = () => {
   return (
     <footer className="border-t-2 border-newsprint-400 pt-6 mt-8">
       <div className="flex justify-between items-center text-sm font-merriweather text-newsprint-600">
-        <div>
+        <div className="flex items-center space-x-3">
+          <img 
+            src="/lovable-uploads/0c0b18c2-0c24-4523-a25c-4ad14c0708a2.png" 
+            alt="ASRSH Logo" 
+            className="h-8 w-8 opacity-70"
+          />
           <p>Page 1</p>
         </div>
         
-        <div className="text-center">
+        <div className="text-center flex items-center space-x-2">
+          <img 
+            src="/lovable-uploads/0c0b18c2-0c24-4523-a25c-4ad14c0708a2.png" 
+            alt="ASRSH Logo" 
+            className="h-6 w-6 opacity-60"
+          />
           <p className="font-bold">ASRSH THE FUTURE</p>
         </div>
         
@@ -46,8 +56,13 @@ export const NewspaperFooter = () => {
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
               <DialogHeader>
-                <DialogTitle className="font-baskerville text-xl">
-                  Download Documents
+                <DialogTitle className="font-baskerville text-xl flex items-center space-x-2">
+                  <img 
+                    src="/lovable-uploads/0c0b18c2-0c24-4523-a25c-4ad14c0708a2.png" 
+                    alt="ASRSH Logo" 
+                    className="h-6 w-6"
+                  />
+                  <span>Download Documents</span>
                 </DialogTitle>
               </DialogHeader>
               <div className="space-y-3">

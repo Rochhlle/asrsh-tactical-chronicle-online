@@ -67,8 +67,18 @@ export const DefenseDome = () => {
 
   return (
     <div className="w-full h-64 mb-8 border border-newsprint-400 bg-newsprint-50 relative">
-      <div className="text-center mb-2 pt-2">
+      <div className="text-center mb-2 pt-2 flex items-center justify-center space-x-3">
+        <img 
+          src="/lovable-uploads/0c0b18c2-0c24-4523-a25c-4ad14c0708a2.png" 
+          alt="ASRSH Logo" 
+          className="h-6 w-6 opacity-70"
+        />
         <p className="newspaper-byline text-newsprint-600">ASRSH DEFENSE MATRIX VISUALIZATION</p>
+        <img 
+          src="/lovable-uploads/0c0b18c2-0c24-4523-a25c-4ad14c0708a2.png" 
+          alt="ASRSH Logo" 
+          className="h-6 w-6 opacity-70"
+        />
       </div>
       <DefenseDomeCanvas />
       <div className="text-center pb-2 flex justify-center items-center space-x-4">
@@ -93,9 +103,16 @@ export const DefenseDome = () => {
                 >
                   <X className="h-5 w-5" />
                 </button>
-                <h1 className="newspaper-headline text-center mb-2">
-                  ASRSH DEFENSE MATRIX VISUALIZATION
-                </h1>
+                <div className="flex items-center justify-center space-x-4 mb-4">
+                  <img 
+                    src="/lovable-uploads/0c0b18c2-0c24-4523-a25c-4ad14c0708a2.png" 
+                    alt="ASRSH Logo" 
+                    className="h-12 w-12"
+                  />
+                  <h1 className="newspaper-headline text-center">
+                    ASRSH DEFENSE MATRIX VISUALIZATION
+                  </h1>
+                </div>
                 <p className="newspaper-byline text-center text-newsprint-600">
                   Interactive Defense Perimeter Concept — Simplified View
                 </p>
