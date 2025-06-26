@@ -129,13 +129,13 @@ export const NewspaperFooter = () => {
                   />
                   <span>CLASSIFIED DOCUMENTS</span>
                   <div className="ml-auto text-sm font-merriweather text-newsprint-600">
-                    CONFIDENTIAL • FOR AUTHORIZED PERSONNEL ONLY
+                    
                   </div>
                 </DialogTitle>
               </DialogHeader>
               
               <div className="newspaper-dateline mb-4 text-center border-b border-newsprint-300 pb-2">
-                SECURE DOCUMENT REPOSITORY • ACCESS GRANTED
+                • ACCESS GRANTED
               </div>
               
               <div className="space-y-4">
@@ -157,7 +157,7 @@ export const NewspaperFooter = () => {
                             {doc.description}
                           </p>
                           <div className="mt-3 text-xs font-merriweather text-newsprint-500 uppercase tracking-wide">
-                            Classification Level: RESTRICTED • Dept: Defense Intelligence
+                            Classification • Dept: Defense Intelligence
                           </div>
                         </div>
                         <Button
@@ -187,7 +187,7 @@ export const NewspaperFooter = () => {
                       ASRSH DEFENSE INTELLIGENCE BUREAU
                     </p>
                     <p className="font-merriweather text-xs opacity-90">
-                      "Sovereignty Through Superior Intelligence" • Established 2024
+                      "Sovereignty Through Superior Intelligence" • planning 2025
                     </p>
                   </div>
                 </div>
