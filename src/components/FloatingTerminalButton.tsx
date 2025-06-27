@@ -1,10 +1,11 @@
-
 import React, { useState } from 'react';
-import { Terminal, X, Download } from 'lucide-react';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Terminal, X, Download, FileText, ExternalLink } from 'lucide-react';
+import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 
 export const FloatingTerminalButton = () => {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [isIssueDialogOpen, setIsIssueDialogOpen] = useState(false);
   const [terminalLines, setTerminalLines] = useState<string[]>([]);
   const [isTyping, setIsTyping] = useState(false);
 
@@ -32,6 +33,29 @@ export const FloatingTerminalButton = () => {
       size: "3.2 MB",
       classification: "SECRET",
       url: "https://drive.google.com/file/d/1xtAY2pmD3yD0bKgn4L-zSfjzmUJjnMI8/view?usp=sharing"
+    }
+  ];
+
+  const issueDocuments = [
+    {
+      title: "Financial Force Projections",
+      url: "https://drive.google.com/file/d/1zAPhypxi2T_1TPlIFsysejBpITAIWheO/view?usp=sharing",
+      description: "Strategic financial analysis and defense budget allocations"
+    },
+    {
+      title: "Market Intelligence Analysis", 
+      url: "https://drive.google.com/file/d/1PUOVE2Of93f-G30aB1-vm46bCqZqa7aJ/view?usp=sharing",
+      description: "Comprehensive market research and competitive intelligence"
+    },
+    {
+      title: "Strategic Executive Summary",
+      url: "https://drive.google.com/file/d/1To4hYj99AFg9zV_FBBoja7ORL_PF3P_g/view?usp=sharing",
+      description: "High-level strategic overview and executive briefing"
+    },
+    {
+      title: "Technical Deployment Specifications",
+      url: "https://drive.google.com/file/d/1xtAY2pmD3yD0bKgn4L-zSfjzmUJjnMI8/view?usp=sharing",
+      description: "Detailed technical specifications and deployment protocols"
     }
   ];
 
@@ -97,6 +121,20 @@ export const FloatingTerminalButton = () => {
     }, 500);
   };
 
+  const handleIssueDownload = () => {
+    playTerminalSound();
+    setTerminalLines(prev => [...prev, "> ACCESSING COMPLETE NEWSPAPER ISSUE..."]);
+    setTimeout(() => {
+      setIsIssueDialogOpen(true);
+    }, 500);
+  };
+
+  const handleDocumentClick = (url: string) => {
+    setTimeout(() => {
+      window.open(url, '_blank');
+    }, 300);
+  };
+
   return (
     <>
       <Dialog open={isTerminalOpen} onOpenChange={handleTerminalOpen}>
@@ -139,6 +177,18 @@ export const FloatingTerminalButton = () => {
                 ))}
               </div>
 
+              {/* Download Issue Button - appears after documents available message */}
+              {terminalLines.length > 3 && (
+                <div className="mb-6">
+                  <button
+                    onClick={handleIssueDownload}
+                    className="bg-green-400/10 border border-green-400 text-green-400 px-4 py-2 hover:bg-green-400/20 transition-colors font-mono text-sm"
+                  >
+                    > DOWNLOAD COMPLETE ISSUE
+                  </button>
+                </div>
+              )}
+
               {/* Document Grid */}
               {terminalLines.length > 3 && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
@@ -169,6 +219,81 @@ export const FloatingTerminalButton = () => {
             {/* Terminal Footer */}
             <div className="border-t border-green-400 px-4 py-2 bg-green-400/5 text-xs">
               ASRSH SECURE TERMINAL • ENCRYPTED CONNECTION • TOP SECRET CLEARANCE
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Download This Issue Dialog */}
+      <Dialog open={isIssueDialogOpen} onOpenChange={setIsIssueDialogOpen}>
+        <DialogContent className="sm:max-w-2xl page-turn-dialog">
+          <DialogHeader>
+            <DialogTitle className="font-baskerville text-2xl flex items-center space-x-3 text-navy-900">
+              <img 
+                src="/lovable-uploads/0c0b18c2-0c24-4523-a25c-4ad14c0708a2.png" 
+                alt="ASRSH Logo" 
+                className="h-8 w-8"
+              />
+              <span>CLASSIFIED DOCUMENTS</span>
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="newspaper-dateline mb-4 text-center border-b border-newsprint-300 pb-2">
+            • ACCESS GRANTED
+          </div>
+          
+          <div className="space-y-4">
+            {issueDocuments.map((doc, index) => (
+              <div 
+                key={index} 
+                className="document-card group border-2 border-newsprint-300 rounded-none bg-newsprint-50 hover:bg-white transition-all duration-300 hover:shadow-lg"
+              >
+                <div className="p-4">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center space-x-3 mb-2">
+                        <FileText className="h-5 w-5 text-navy-700" />
+                        <h3 className="font-baskerville font-bold text-lg text-navy-900 group-hover:text-navy-700 transition-colors">
+                          {doc.title}
+                        </h3>
+                      </div>
+                      <p className="font-merriweather text-sm text-newsprint-700 leading-relaxed">
+                        {doc.description}
+                      </p>
+                      <div className="mt-3 text-xs font-merriweather text-newsprint-500 uppercase tracking-wide">
+                        Classification • Dept: Defense Intelligence
+                      </div>
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleDocumentClick(doc.url)}
+                      className="ml-4 flex items-center gap-2 font-merriweather bg-navy-900 text-white hover:bg-navy-700 border-navy-900 hover:border-navy-700"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      ACCESS
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-6 p-4 bg-navy-900 text-white rounded-none">
+            <div className="flex items-center space-x-3">
+              <img 
+                src="/lovable-uploads/0c0b18c2-0c24-4523-a25c-4ad14c0708a2.png" 
+                alt="ASRSH Logo" 
+                className="h-6 w-6 opacity-90"
+              />
+              <div>
+                <p className="font-baskerville font-bold text-sm">
+                  ASRSH DEFENSE INTELLIGENCE BUREAU
+                </p>
+                <p className="font-merriweather text-xs opacity-90">
+                  "Sovereignty Through Superior Intelligence" • planning 2025
+                </p>
+              </div>
             </div>
           </div>
         </DialogContent>
