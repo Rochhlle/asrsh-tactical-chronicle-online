@@ -5,7 +5,7 @@ export const FrontPageArticle = () => {
   return (
     <article className="mb-8">
       <h2 className="newspaper-headline text-navy-900 mb-6">
-        "It didn't start with a factory. It started with a question."
+        "It didn't start with a project. It started with a question."
       </h2>
       
       <div className="newspaper-column">

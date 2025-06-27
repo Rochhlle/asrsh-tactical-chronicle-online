@@ -11,7 +11,6 @@ import { MissionRoadmap } from '@/components/MissionRoadmap';
 import { TechStack } from '@/components/TechStack';
 import { ClosingEditorial } from '@/components/ClosingEditorial';
 import { NewspaperFooter } from '@/components/NewspaperFooter';
-import { FloatingTerminalButton } from '@/components/FloatingTerminalButton';
 
 const Index = () => {
   const [bootComplete, setBootComplete] = useState(false);
@@ -54,9 +53,6 @@ const Index = () => {
       {/* Cinematic Sections */}
       <MissionRoadmap />
       <TechStack />
-
-      {/* Floating Terminal Button */}
-      <FloatingTerminalButton />
     </div>
   );
 };
