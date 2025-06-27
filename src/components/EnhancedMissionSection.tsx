@@ -105,7 +105,7 @@ export const EnhancedMissionSection = () => {
               key={lineIndex}
               className="mb-4 min-h-[24px] flex items-center"
             >
-              <span className="text-green-600 mr-4">{`${lineIndex + 1:02d}:`}</span>
+              <span className="text-green-600 mr-4">{String(lineIndex + 1).padStart(2, '0')}:</span>
               <span>
                 {lineIndex < currentLine 
                   ? line
