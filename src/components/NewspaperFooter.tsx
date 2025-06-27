@@ -31,8 +31,9 @@ export const NewspaperFooter = () => {
   ];
 
   const playPageTurnSound = () => {
-    // Create audio context for sound effects
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    // Create audio context for sound effects with proper typing
+    const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+    const audioContext = new AudioContextClass();
     
     // Paper swipe sound
     const createPaperSwipe = () => {
