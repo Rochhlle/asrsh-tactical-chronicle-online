@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Terminal, X, Download, FileText, ExternalLink } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -184,7 +185,7 @@ export const FloatingTerminalButton = () => {
                     onClick={handleIssueDownload}
                     className="bg-green-400/10 border border-green-400 text-green-400 px-4 py-2 hover:bg-green-400/20 transition-colors font-mono text-sm"
                   >
-                    > DOWNLOAD COMPLETE ISSUE
+                    &gt; DOWNLOAD COMPLETE ISSUE
                   </button>
                 </div>
               )}
