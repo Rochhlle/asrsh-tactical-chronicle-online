@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { TerminalBoot } from '@/components/TerminalBoot';
-import { HeroSection } from '@/components/HeroSection';
 import { NewspaperHeader } from '@/components/NewspaperHeader';
 import { FrontPageArticle } from '@/components/FrontPageArticle';
 import { DefenseDome } from '@/components/DefenseDome';
@@ -32,10 +31,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-green-400/5 via-transparent to-blue-400/5"></div>
       </div>
 
-      {/* Hero Section */}
-      <HeroSection />
-
-      {/* Newspaper Section */}
+      {/* Newspaper Section - Now the main content */}
       <div className="max-w-7xl mx-auto px-4 py-8 relative z-20">
         <div className="bg-white shadow-2xl border border-newsprint-300 p-8 md:p-12">
           <NewspaperHeader />
