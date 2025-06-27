@@ -1,15 +1,18 @@
 
 import React, { useState } from 'react';
 import { TerminalBoot } from '@/components/TerminalBoot';
+import { HeroSection } from '@/components/HeroSection';
 import { NewspaperHeader } from '@/components/NewspaperHeader';
 import { FrontPageArticle } from '@/components/FrontPageArticle';
 import { DefenseDome } from '@/components/DefenseDome';
 import { EditorialSection } from '@/components/EditorialSection';
 import { RevenueSection } from '@/components/RevenueSection';
+import { EnhancedMissionSection } from '@/components/EnhancedMissionSection';
 import { MissionRoadmap } from '@/components/MissionRoadmap';
 import { TechStack } from '@/components/TechStack';
 import { ClosingEditorial } from '@/components/ClosingEditorial';
 import { NewspaperFooter } from '@/components/NewspaperFooter';
+import { FloatingTerminalButton } from '@/components/FloatingTerminalButton';
 
 const Index = () => {
   const [bootComplete, setBootComplete] = useState(false);
@@ -29,6 +32,10 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-green-400/5 via-transparent to-blue-400/5"></div>
       </div>
 
+      {/* Hero Section */}
+      <HeroSection />
+
+      {/* Newspaper Section */}
       <div className="max-w-7xl mx-auto px-4 py-8 relative z-20">
         <div className="bg-white shadow-2xl border border-newsprint-300 p-8 md:p-12">
           <NewspaperHeader />
@@ -45,9 +52,15 @@ const Index = () => {
         </div>
       </div>
 
-      {/* New Cinematic Sections */}
+      {/* Enhanced Mission Section */}
+      <EnhancedMissionSection />
+
+      {/* Cinematic Sections */}
       <MissionRoadmap />
       <TechStack />
+
+      {/* Floating Terminal Button */}
+      <FloatingTerminalButton />
     </div>
   );
 };

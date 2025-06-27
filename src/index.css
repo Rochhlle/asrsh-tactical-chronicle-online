@@ -272,6 +272,47 @@
       transform: translateY(0);
     }
   }
+
+  /* Typewriter Effect */
+  .typewriter-line {
+    border-right: 2px solid #00ff00;
+    animation: typewriter-blink 1s infinite;
+  }
+
+  @keyframes typewriter-blink {
+    0%, 50% { border-color: #00ff00; }
+    51%, 100% { border-color: transparent; }
+  }
+
+  /* Terminal Animations */
+  .terminal-slide-in {
+    animation: terminal-slide-in 0.5s ease-out forwards;
+  }
+
+  @keyframes terminal-slide-in {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Glowing Effects */
+  .glow-green {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(0, 128, 255, 0.3);
+  }
+
+  /* Parallax Smooth Scrolling */
+  .parallax-element {
+    will-change: transform;
+  }
 }
 
 @layer utilities {
